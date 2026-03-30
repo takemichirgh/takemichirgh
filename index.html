@@ -1,78 +1,47 @@
+<!-- index.html (DINÂMICO) -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Takemichi RGH</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
 <div class="header">
-<img src="assets/banner.png" class="banner">
+<img src="https://i.postimg.cc/qqPZc7pB/banner.png" class="banner">
 </div>
 
 <div class="controls">
-
 <input type="text" id="search" placeholder="Buscar jogo...">
 
 <select id="categoria">
-
 <option value="all">Todas categorias</option>
-<option value="acao">Ação</option>
-<option value="aventura">Aventura</option>
-<option value="corrida">Corrida</option>
-<option value="fps">FPS</option>
-
 </select>
 
 <button onclick="verFavoritos()">⭐ Favoritos</button>
-
 <button onclick="mostrarTodos()">🎮 Todos</button>
-
 </div>
 
 <div class="grid" id="grid"></div>
 
 <div id="modal">
-
 <div class="modal-box">
-
-<img id="modal-img">
-
+<img id="modal-img" onclick="toggleGlowModal()">
 <div class="modal-content">
-
 <h2 id="modal-nome"></h2>
-
 <div><strong>Descrição:</strong></div>
-
 <div class="modal-desc" id="modal-desc"></div>
-
 <div>📦 <span id="modal-tamanho"></span></div>
-
 <div>💿 <span id="modal-formato"></span></div>
-
 <div class="modal-buttons">
-
-<a id="modal-link" target="_blank">
-⬇ Download
-</a>
-
-<button class="fechar" onclick="fecharModal()">
-Fechar
-</button>
-
+<a id="modal-link" target="_blank">⬇ Download</a>
+<button class="fechar" onclick="fecharModal()">Fechar</button>
 </div>
-
 </div>
-
 </div>
-
 </div>
 
 <div id="notificacoes"></div>

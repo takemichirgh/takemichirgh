@@ -1,4 +1,4 @@
-// script.js (DINÂMICO COM CATEGORIAS AUTOMÁTICAS)
+// script.js (DINÂMICO COM FIREBASE)
 
 function criarNotif(texto){
 const container=document.getElementById("notificacoes")
@@ -57,28 +57,38 @@ categoria.appendChild(option)
 })
 }
 
-fetch("data/jogos.json")
-.then(res=>res.json())
-.then(data=>{
-jogos=data
-carregarCategorias(jogos) // 👈 DINÂMICO
-mostrarJogos(jogos)
-})
-.catch(()=>{
-jogos=[
-{nome:"GTA V",categoria:"acao",tamanho:"16 GB",formato:"GOD",descricao:descGrande,imagem:"https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg",link:"#"},
-{nome:"Red Dead Redemption",categoria:"aventura",tamanho:"7 GB",formato:"GOD",descricao:descGrande,imagem:"https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.jpg",link:"#"},
-{nome:"Call of Duty Black Ops 2",categoria:"fps",tamanho:"8 GB",formato:"GOD",descricao:descGrande,imagem:"https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.jpg",link:"#"},
-{nome:"Forza Horizon",categoria:"corrida",tamanho:"9 GB",formato:"GOD",descricao:descGrande,imagem:"https://images.igdb.com/igdb/image/upload/t_cover_big/co1x7y.jpg",link:"#"},
-{nome:"Minecraft",categoria:"aventura",tamanho:"1 GB",formato:"XBLA",descricao:descGrande,imagem:"https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.jpg",link:"#"},
-{nome:"Halo Reach",categoria:"fps",tamanho:"7 GB",formato:"GOD",descricao:descGrande,imagem:"https://images.igdb.com/igdb/image/upload/t_cover_big/co1x8h.jpg",link:"#"},
-{nome:"Assassin's Creed IV",categoria:"aventura",tamanho:"6 GB",formato:"GOD",descricao:descGrande,imagem:"https://images.igdb.com/igdb/image/upload/t_cover_big/co1rv3.jpg",link:"#"},
-{nome:"Need for Speed Most Wanted",categoria:"corrida",tamanho:"6 GB",formato:"GOD",descricao:descGrande,imagem:"https://images.igdb.com/igdb/image/upload/t_cover_big/co1x8w.jpg",link:"#"}
-]
+//
+// 🔥 AQUI ESTÁ A MUDANÇA IMPORTANTE
+//
 
-carregarCategorias(jogos) // 👈 DINÂMICO NO FALLBACK
+function carregarJogosFirebase(){
+
+db.ref("jogos").on("value",(snapshot)=>{
+
+const dados=snapshot.val()
+
+if(!dados){
+jogos=[]
+mostrarJogos([])
+return
+}
+
+// transforma objeto em array
+jogos = Object.values(dados)
+
+carregarCategorias(jogos)
+
+if(modo==="favoritos"){
+verFavoritos()
+}else{
 mostrarJogos(jogos)
+}
+
 })
+
+}
+
+carregarJogosFirebase()
 
 function mostrarJogos(lista){
 grid.innerHTML = lista.map(jogo=>{
@@ -138,8 +148,10 @@ function filtrar(){
 modo="todos"
 const texto=search.value.toLowerCase()
 const cat=categoria.value
+
 mostrarJogos(jogos.filter(j=>{
-return j.nome.toLowerCase().includes(texto) && (cat==="all"||j.categoria===cat)
+return j.nome.toLowerCase().includes(texto) &&
+(cat==="all"||j.categoria===cat)
 }))
 }
 
@@ -167,4 +179,4 @@ document.body.classList.remove("travado")
 
 function toggleGlowModal(){
 modalImg.classList.toggle("active")
-}
+  }

@@ -1,11 +1,56 @@
 [
   {
-    "nome": "GTA V",
+    "nome": "GTA SAN ANDREAS",
+    "categoria": "acao",
+    "tamanho": "4GB",
+    "formato": "Descrição: GTA SAN ANDREAS",
+    "descricao": "GTA SAN ANDREAS",
+    "imagem": "https://imagem.png",
+    "link": "https://mediafire.com/xxxx"
+  },
+  {
+    "nome": "Fifa 19",
     "categoria": "acao",
     "tamanho": "16 GB",
     "formato": "GOD",
-    "descricao": "Jogo de mundo aberto.",
-    "imagem": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg",
-    "link": "#"
+    "descricao": "Jogo de futebol",
+    "imagem": "images/257.jpg",
+    "link": "https://mediafire.com/xxxx"
+  },
+  {
+    "nome": "TESTE 1",
+    "categoria": "corrida",
+    "tamanho": "18 GB",
+    "formato": "XEX",
+    "descricao": "JOGO BOM DEMAIS",
+    "imagem": "images/261.jpg",
+    "link": "https://mediafire.com/xxxx"
+  },
+  {
+    "nome": "FIFA 23",
+    "categoria": "esportes",
+    "tamanho": "40 GB",
+    "formato": "GOD",
+    "descricao": "Futebol",
+    "imagem": "images/263.jpg",
+    "link": "https://..."
+  },
+  {
+    "nome": "Nome do jogo",
+    "categoria": "ação",
+    "tamanho": "2GB",
+    "formato": "ISO",
+    "descricao": "Um jogo incrível",
+    "imagem": "https://via.placeholder.com/300x400",
+    "link": "https://exemplo.com"
+  },
+  {
+    "nome": "GTA 5",
+    "categoria": "acao",
+    "tamanho": "14GB",
+    "formato": "GOD",
+    "descricao": "GTA 5 é um jogo de ação e aventura em mundo aberto desenvolvido pela Rockstar Games. Lançado em 2013, o jogo se passa em Los Santos, uma cidade fictícia inspirada em Los Angeles. A história segue três personagens principais: Michael, Franklin e Trevor, cada um com suas próprias motivações e histórias.",
+    "imagem": "images/286.jpg",
+    "link": "Descrição: GTA 5 é um jogo de ação e aventura em mundo aberto desenvolvido pela Rockstar Games. Lançado em 2013, o jogo se passa em Los Santos, uma cidade fictícia inspirada em Los Angeles. A história segue três personagens principais: Michael, Franklin e Trevor, cada um com suas próprias motivações e histórias."
   }
 ]
